@@ -3,26 +3,20 @@
     mov     ax, 0000h 
     mov     bx, 0000h
     mov     cx, 0000h
-    mov    ax, 16d
-    mov    bx, 1d
-    mov    cx, 1d
+    mov     ax, 1d
+    mov     di, 1d
+    mov     cx, 0016d
     mov     dx,0000h
 
-    lupita:mov    [220h + bx], cx
+    lupita:mov    [di + 220h], ax
     
-    inc     bx
+    inc     di
     
-    mov     [200h],cx
-    add     cx, dx
+    mov     [200h],ax
+    add     ax, dx
     mov     dx, [200h]
 
-    cmp     ax,bx
-    ja      lupita
-
-    cmp     ax,bx
-    je      lupita
-
-
+    loop    lupita
       
 
     int 20h
